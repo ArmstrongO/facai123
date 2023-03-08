@@ -5,29 +5,21 @@
 
 
 def shengchan():
-    file = open ( file="puke.txt", mode="a", encoding="utf8" )
+    file = open ( file="puke.xlsx", mode="a", encoding="utf8" )
     color = ["红桃", "黑桃", "方块", "梅花"]
     file.write ( f"[Big_Joker]\n[Small_Joker]\n" )
     for c in color:
         for n in range ( 1, 14 ):
             # file.write(str(c)+str(n)+"\n")
             file.write ( f"[花色：{c} 点数：{n}]\n" )
-shengchan()
+# shengchan()
 import random
 def chouka():
-    with open(file="puke.txt",encoding="utf8") as f:
+    with open(file="puke.xlsx",encoding="utf8") as f:
         lines = f.readlines()
         random_line = random.choice(lines)
         return random_line
         # print(type(random_list))
-
-# def s_s():
-#     id = input("请输入需要查询的学员id:")
-#     for stu in students:
-#         if stu["ID"] == id:
-#             print(stu)
-#             return   # 结束函数
-#     print("查无此人")
 
 import  datetime
 def t_time():
@@ -41,10 +33,28 @@ def wanjia():
         wanjia=random.choice(xuanshou)
         return wanjia
 def danchou():
-    jieguo = wanjia () + "在" + t_time () + "的时间，抽到了一张牌" + chouka ()
-    file = open ( file="jilu.txt", mode="a", encoding="utf8" )
+    jieguo = wanjia () + "在" + t_time () + "的时间，抽到了一张" + chouka ()+"的牌"
+    file = open ( file="jilu.xlsx", mode="a", encoding="utf8" )
     file.write (jieguo)
     print ( jieguo )
+
+
+
+import  os
+
+import pandas
+path = r'C:\Users\Administrator\Desktop\pythonProject\fanmao123\xiangmu\puke.xlsx'
+if not os.path.exists(path):
+# return
+raw_data = pandas.read_excel(path, header=0)
+print(raw_data)
+
+
+
+
+
+
+
 while True:
     print("这里是抽卡时间，请输入1开始随机抽卡：")
     number = input("\n1.一发入魂\n2.十连满命\n3.百连\n4.退出")
@@ -63,6 +73,9 @@ while True:
         break
     else:
         pass
+
+
+
 
 
 
