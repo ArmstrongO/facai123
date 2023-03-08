@@ -20,13 +20,11 @@ def chouka():
         random_line = random.choice(lines)
         return random_line
         # print(type(random_list))
-
 import  datetime
 def t_time():
     now=datetime.datetime.now()
-    now_str=now.strftime("%Y-%m-%d %H:%M:%S")
+    now_str= now.strftime("%Y-%m-%d %H:%M:%S")
     return now_str
-
 def wanjia():
     xuanshou = ["小孙", "小兰", "老赵", "老王"]
     for c in xuanshou:
@@ -37,23 +35,15 @@ def danchou():
     file = open ( file="jilu.xlsx", mode="a", encoding="utf8" )
     file.write (jieguo)
     print ( jieguo )
-
-
-
 import  os
 
 import pandas
 path = r'C:\Users\Administrator\Desktop\pythonProject\fanmao123\xiangmu\puke.xlsx'
 if not os.path.exists(path):
-# return
-raw_data = pandas.read_excel(path, header=0)
-print(raw_data)
 
+    raw_data = pandas.read_excel(path, header=0)
 
-
-
-
-
+# print(raw_data)
 
 while True:
     print("这里是抽卡时间，请输入1开始随机抽卡：")

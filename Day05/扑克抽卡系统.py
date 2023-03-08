@@ -12,6 +12,7 @@ def shengchan():
         for n in range ( 1, 14 ):
             # file.write(str(c)+str(n)+"\n")
             file.write ( f"[花色：{c} 点数：{n}]\n" )
+
 shengchan()
 import random
 def chouka():
