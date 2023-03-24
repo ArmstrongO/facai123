@@ -82,14 +82,4 @@ from tkinter import filedialog
 root = tk.Tk()
 root.withdraw()
 file_path = filedialog.askopenfilename(filetypes=[('Text Files', '*.txt')])
-
-# 读取文件内容并打印第二行
-with open(file_path, 'r') as f:
-lines = f.readlines()
-if len(lines) >= 2:
-print(lines[1])
 '''''
-
-# pk = ["Big_Joker", "Small_Joker"]
-# str_pk = ', '.join(pk)
-# file.write(str_pk)

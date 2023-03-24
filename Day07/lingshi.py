@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 
 def cnode():
     global wc
-    wc=webdriver.Chrome("https://liceshi-7gg6d5pd94c923ca-1253923466.tcloudbaseapp.com/chromedriver.exe?sign=7c8cca7b14af4d4c44f1676d87cd7cbb&t=1678256998")
+    wc=webdriver.Chrome(r"C:\Users\Administrator\Desktop\1\chromedriver.exe")
     wc.get("http://119.91.224.105:3000")
     time.sleep ( 1 )
     wc.maximize_window()
@@ -41,6 +41,7 @@ def fabu():
     wc.find_element(By.CSS_SELECTOR,"#create_topic_form > fieldset > div > div > div.editor_buttons > input").click()
     # ActionChains(wc).key_down(7)
     time.sleep ( 50 )
+    return
     # ActionChains(wc).
     # 点击发布
 
