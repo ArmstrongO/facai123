@@ -13,12 +13,10 @@ import requests
 
 
 def cc():
-    y=184504
-    ss=y
-    url = f"http://www.f32d.buzz/AAtupian/AAAwz/{ss}.html"  # 获取url
+    url = f"https://gitcode.net/weixin_38503250/index/-/tree/master/bai"  # 获取url
     time.sleep(1)
     tiqu_lianjie='https://wo-ai-tutu.com/weimei/20201108/'
-    pat = f'{tiqu_lianjie}(.*?)jpg'
+    pat = f'{tiqu_lianjie}(.*?)PNG'
     # pat = 'https://gw3.alicdn.com/tfscom/tuitui/O1CN011EQxtrlijjxqoLq_!!0-rate.jpg'  #匹配规则
     data = urllib.request.urlopen(url).read().decode("utf-8") #读取网页的内容并解码
     relut = re.compile(pat).findall(data)       #会返回一个列表
@@ -34,8 +32,7 @@ def cc_c():
     urll = f"http://www.f32d.buzz/AAtupian/AAAtb/cartoon/"  # 获取url
     time.sleep(1)
     tiqu_lianjiee='/AAtupian/AAAwz/'
-    patt = f'{tiqu_lianjiee}(.*?)html'
-    # pat = 'https://gw3.alicdn.com/tfscom/tuitui/O1CN011EQxtrlijjxqoLq_!!0-rate.jpg'  #匹配规则
+    patt = f'{tiqu_lianjiee}(.*?)jpg'
     dataa = urllib.request.urlopen(urll).read().decode("utf-8") #读取网页的内容并解码
     relutt = re.compile(patt).findall(dataa)       #会返回一个列表
     for ii in relutt:
@@ -44,7 +41,6 @@ def cc_c():
         time.sleep(1)
         tiqu_lianjie='https://wo-ai-tutu.com/'
         pat = f'{tiqu_lianjie}(.*?)jpg'
-        # pat = 'https://gw3.alicdn.com/tfscom/tuitui/O1CN011EQxtrlijjxqoLq_!!0-rate.jpg'  #匹配规则
         data = urllib.request.urlopen(url).read().decode("utf-8") #读取网页的内容并解码
         relut = re.compile(pat).findall(data)       #会返回一个列表
         file = open(r"C:\Users\Administrator\Desktop\1\sese5.txt", "a", encoding="utf-8")  #这里我定义了一个自己的存储路径，大家可以根据自己的路径修改
@@ -56,7 +52,6 @@ def cc_c():
             file.write("\n")    #表示换行
     print ( "end" )
 
-cc_c()
 # cc()
 # for n in range ( 1, 30 ):
 #     time.sleep ( 1 )
