@@ -35,7 +35,7 @@ def t_time():
     now=datetime.datetime.now()
     now_str=now.strftime("%Y-%m-%d %H:%M:%S")
     return now_str
-
+print(t_time())
 def wanjia():
     xuanshou = ["小孙", "小兰", "老赵", "老王"]
     for c in xuanshou:
