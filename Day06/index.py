@@ -1,5 +1,5 @@
 
 
-from 请求 import yiyan
+from API请求 import yiyan
 
 yiyan()

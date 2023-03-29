@@ -1,6 +1,9 @@
 
 import requests
 import time
+
+
+
 url="http://119.91.224.105:3000/api/v1/"
 
 def yiyan():
@@ -30,8 +33,10 @@ def add_zt():
         "tab":"ask",
         "content": f"内容:{yiyan1()}"
     }
-    res=requests.post(url=f"{url}topics", json=date)
-    topic_id=res.json()["topic_id"]
+
+    res = requests.post ( url=f"{url}topics", json=date )
+    topic_id = res.json ()["topic_id"]
+
 
 for n in range ( 1, 30000 ):
     y+=1

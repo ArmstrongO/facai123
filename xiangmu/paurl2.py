@@ -3,8 +3,10 @@ import requests
 def yiyan():
     # 要抓取链接的网站
     url = "http://api.btstu.cn/sjbz/"
+    # url = "https://www.miyoushe.com/ys/home/49"
     # 要保存链接的文件名
-    filename = r"C:\Users\Administrator\Desktop\1\meib.txt"
+    # filename = r"C:\Users\Administrator\Desktop\1\meib.txt"
+    filename = r"C:\Users\Administrator\Desktop\1\mimi.txt"
     # 发送HTTP请求并获取响应
     try:
         headers = {
@@ -23,6 +25,7 @@ def yiyan():
             with open ( filename, "a" ) as f:
                 for url in redirect_urls:
                     f.write ( url + "\n" )
+                    print(url)
     except Exception as e:
         print ( e )
 

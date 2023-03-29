@@ -12,22 +12,22 @@ import requests
 
 
 
-def cc():
-    url = f"https://gitcode.net/weixin_38503250/index/-/tree/master/bai"  # 获取url
+def cc_danye():
+    url = f"https://www.miyoushe.com/ys/home/49"  # 要爬取的url
     time.sleep(1)
-    tiqu_lianjie='https://wo-ai-tutu.com/weimei/20201108/'
-    pat = f'{tiqu_lianjie}(.*?)PNG'
-    # pat = 'https://gw3.alicdn.com/tfscom/tuitui/O1CN011EQxtrlijjxqoLq_!!0-rate.jpg'  #匹配规则
+    tiqu_lianjie='https://upload-bbs.miyoushe.com/upload/2023/03/29/355224425/'#目标地址前缀
+    pat = f'{tiqu_lianjie}(.*?)jpg'#正则匹配以PNG结尾的地址
     data = urllib.request.urlopen(url).read().decode("utf-8") #读取网页的内容并解码
     relut = re.compile(pat).findall(data)       #会返回一个列表
-    file = open(r"C:\Users\Administrator\Desktop\1\sese.txt", "a", encoding="utf-8")  #这里我定义了一个自己的存储路径，大家可以根据自己的路径修改
+    file = open(r"C:\Users\Administrator\Desktop\1\mimi.txt", "a", encoding="utf-8")  #这里我定义了一个自己的存储路径，大家可以根据自己的路径修改
     for i in relut:
         file.write(f'{tiqu_lianjie}')  #先写进开头
+        print(i)
         file.write(i)        #将提取的内容写入文件
         file.write("jpg")    # 将格式写入
         file.write("\n")    #表示换行
     print ( "end" )
-
+cc_danye()
 def cc_c():
     urll = f"http://www.f32d.buzz/AAtupian/AAAtb/cartoon/"  # 获取url
     time.sleep(1)
