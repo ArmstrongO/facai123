@@ -1,5 +1,5 @@
 # coding=utf-8
-# import xlrd
+import xlrd
 
 
 # 创建对象时，获取对应excel 表格

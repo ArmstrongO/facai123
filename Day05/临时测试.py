@@ -30,7 +30,6 @@ for i in s:
         request.urlretrieve(i, filename=filename)  # i为图片地址，filename是图片的名称
     except error.HTTPError as e:
         print('HTTP Error {0}: {1}'.format(e.code, e.reason))
-    time.sleep(1)
     q += 1
 
 print("爬取完成！")

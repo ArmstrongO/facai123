@@ -1,9 +1,9 @@
 
 
 
-from work import add_yonghu
-from work import denglu_yonghu
-from work import admin
+from homework import add_yonghu
+from homework import denglu_yonghu
+from homework import admin
 
 while True:
     num =input("选择功能:\n1.用户注册  \n2.用户登录 \n3.退出")
