@@ -1,6 +1,7 @@
 
 import requests
 import time
+import threading
 
 
 
@@ -14,34 +15,78 @@ def yiyan():
     res = requests.get(url="https://v1.hitokoto.cn/", params=date)
     return res.text
 def yiyan1():
-    date = {
+    url = "https://v1.hitokoto.cn/"
+    params = {
         "c": "f",
         "encode": "text"
     }
-    res = requests.get(url="https://v1.hitokoto.cn/", params=date)
-    return res.text
+    try:
+        res = requests.get(url, params=params)
+        res.raise_for_status()  # 抛出异常
+    except requests.exceptions.RequestException as e:
+        print("网络连接出现问题: ", e)
+        return None
+    else:
+        return res.text
 accesstoken = "39c620f5-e979-48b4-8790-f79b511ad8d3"
 topic_id = ""
-# 新建主题
+reply_id = ""
 x=yiyan()
 y=0
 def add_zt():
     global topic_id
-    date={
+    date = {
         "accesstoken": accesstoken,
-        "title": f"主题{y}:{yiyan()}",
-        "tab":"ask",
+        "title": f"{yiyan()}",
+        "tab": "ask",
         "content": f"内容:{yiyan1()}"
     }
+    try:
+        res = requests.post ( url=f"{url}topics", json=date )
+    except requests.exceptions.RequestException as e:
+        print("网络连接出现问题: ", e)
+        return None
+    else:
+        topic_id = res.json ()["topic_id"]
+        print ( topic_id )
+        return res.text
 
-    res = requests.post ( url=f"{url}topics", json=date )
-    topic_id = res.json ()["topic_id"]
+def add_pinglun():
+    global reply_id
+    date = {
+        "accesstoken": accesstoken,
+        "content": f"threading_1:{yiyan1 ()}"
+    }
+    try:
+        res= requests.post(url=f"{url}topic/{reply_id}/replies",json=date)
+        res.raise_for_status ()
+    except requests.exceptions.RequestException as e:
+        print ( "网络连接出现问题: threading_1", e )
+        time.sleep(9)
+        return None
+    else:
+        reply_id = res.json()["reply_id"]
 
 
-for n in range ( 1, 30000 ):
-    y+=1
-    add_zt ()
-    time.sleep(1)
+def eeee():
+    while 1:
+        add_zt()
+t1=threading.Thread(target=eeee())
+t1.start()
+t2=threading.Thread(target=eeee())
+t2.start()
+t3=threading.Thread(target=eeee())
+t3.start()
+t4=threading.Thread(target=eeee())
+t4.start()
+
+
+
+t1.join()
+# for n in range ( 1, 30000 ):
+#     y+=1
+#     add_zt ()
+#     time.sleep(1)
     # print(yiyan())
 
 
