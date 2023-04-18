@@ -1,4 +1,6 @@
 # fanmao123
+pip freeze > requirements.txt
+导出第三方插件版本号
 pycharm常用快捷键
 ●Ctrl + Enter——在下方新建行，但不移动光标
 ● Shift + Enter——在下方新建行，但移动光标到新建行行首

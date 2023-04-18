@@ -60,7 +60,7 @@ print(list1[4][0] == list1[4][3][1])
 #     求字符串的英文部分
 #     求字符串中的三个数字，并把这三个数字求和
 #     求mao
-cl = "fanmao123"
+# cl = "fanmao123"
 print(cl[2:])
 print(cl[:-3])
 print(int(cl[-3]) + int(cl[-2]) + int(cl[-1]))

@@ -2,10 +2,19 @@
 # 扑克牌要以列表保存， ["红桃",1-13] [[],[],[],[],[]54个] 大小王 ["Big_Joker"] ["Small_Joker"]
 # python中有内置的库，叫做随机库
 # 导入随机库的方式 import
+import os
+
+
+file_pp = fr"D:\puke.txt"
+if os.path.exists(file_pp):
+    os.remove(file_pp)
+    pass
+else:
+    pass
 
 
 def shengchan():
-    file = open ( file="puke.txt", mode="a", encoding="utf8" )
+    file = open ( file="D:\puke.txt", mode="a", encoding="utf8" )
     color = ["红桃", "黑桃", "方块", "梅花"]
     file.write ( f"[Big_Joker]\n[Small_Joker]\n" )
     for c in color:
@@ -15,20 +24,14 @@ def shengchan():
 
 shengchan()
 import random
+
 def chouka():
-    with open(file="puke.txt",encoding="utf8") as f:
+    with open(file="D:\puke.txt",encoding="utf8") as f:
         lines = f.readlines()
         random_line = random.choice(lines)
         return random_line
         # print(type(random_list))
 
-# def s_s():
-#     id = input("请输入需要查询的学员id:")
-#     for stu in students:
-#         if stu["ID"] == id:
-#             print(stu)
-#             return   # 结束函数
-#     print("查无此人")
 
 import  datetime
 def t_time():
@@ -43,7 +46,7 @@ def wanjia():
         return wanjia
 def danchou():
     jieguo = wanjia () + "在" + t_time () + "的时间，抽到了一张牌" + chouka ()
-    file = open ( file="jilu.txt", mode="a", encoding="utf8" )
+    file = open ( file="D:\jilu.txt", mode="a", encoding="utf8" )
     file.write (jieguo)
     print ( jieguo )
 while True:

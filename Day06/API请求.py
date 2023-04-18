@@ -49,6 +49,7 @@ def add_zt():
     else:
         topic_id = res.json ()["topic_id"]
         print ( topic_id )
+        print({yiyan()})
         return res.text
 
 def add_pinglun():

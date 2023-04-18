@@ -5,7 +5,17 @@ import time
 # from requests.packages import target
 
 url="http://119.91.224.105:3000/api/v1/"
-accesstoken = "39c620f5-e979-48b4-8790-f79b511ad8d3"
+
+
+number = input("\nCNode论坛刷帖工具\n请输入你的token后回车:\n例如：39c620f5-e979-48b4-8790-f79b511ad8d3\n或者直接输入数字“1”测试\n")
+if number == "1":
+    accesstoken = "39c620f5-e979-48b4-8790-f79b511ad8d3"
+    print("正在刷默认账户...")
+else:
+    accesstoken =number
+    print ( "正在刷输入账户..." )
+
+
 
 
 def yiyan1():
@@ -23,6 +33,19 @@ def yiyan1():
     else:
         return res.text
 
+
+# topic_id1 = input("\n输入帖子id\n")
+# if number == "1":
+#
+# else:
+#     topic_id1 = input
+
+topic_id1 = "6437f83632e5517919c42ee1"
+topic_id2 = "6437f83532e5517919c42ee0"
+topic_id3="6437f83532e5517919c42edf"
+topic_id4="6437f83532e5517919c42ede"
+
+
 def _add_pinglun():
     while 1:
         global reply_id
@@ -31,11 +54,11 @@ def _add_pinglun():
             "content": f"threading_1:{yiyan1 ()}"
         }
         try:
-            res= requests.post(url=f"{url}topic/64293913c16f1543e053ae42/replies",json=date)
+            res= requests.post(url=f"{url}topic/{topic_id1}/replies",json=date)
             res.raise_for_status ()
         except requests.exceptions.RequestException as e:
             print ( "网络连接出现问题: threading_1", e )
-            time.sleep(9)
+            time.sleep(19)
             return None
         else:
             reply_id = res.json()["reply_id"]
@@ -47,11 +70,11 @@ def _add_pinglun2():
             "content": f"threading_2:{yiyan1 ()}"
         }
         try:
-            res= requests.post(url=f"{url}topic/64293912c16f1543e053ae40/replies",json=date)
+            res= requests.post(url=f"{url}topic/{topic_id2}/replies",json=date)
             res.raise_for_status ()
         except requests.exceptions.RequestException as e:
             print ( "网络连接出现问题: threading_2", e )
-            time.sleep ( 9 )
+            time.sleep ( 19 )
             return None
         else:
             pass
@@ -63,11 +86,11 @@ def _add_pinglun3():
             "content": f"threading_3:{yiyan1 ()}"
         }
         try:
-            res= requests.post(url=f"{url}topic/6429258cc16f1543e052161c/replies",json=date)
+            res= requests.post(url=f"{url}topic/{topic_id3}/replies",json=date)
             res.raise_for_status ()
         except requests.exceptions.RequestException as e:
             print ( "网络连接出现问题: threading_3", e )
-            time.sleep ( 9 )
+            time.sleep ( 19 )
             return None
         else:
             pass
@@ -78,11 +101,11 @@ def _add_pinglun4():
             "content": f"threading_4:{yiyan1 ()}"
         }
         try:
-            res= requests.post(url=f"{url}topic/64293912c16f1543e053ae41/replies",json=date)
+            res= requests.post(url=f"{url}topic/{topic_id4}/replies",json=date)
             res.raise_for_status ()
         except requests.exceptions.RequestException as e:
             print ( "网络连接出现问题: threading_4", e )
-            time.sleep ( 9 )
+            time.sleep ( 19 )
             return None
         else:
             pass

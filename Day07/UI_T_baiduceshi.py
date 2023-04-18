@@ -10,6 +10,12 @@ driver=webdriver.Chrome(r"C:\Users\Administrator\Desktop\1\chromedriver.exe")
 driver.get("https://www.baidu.com")
 
 driver.maximize_window()
-driver.find_element(By.ID,"kw").send_keys("GPT")
-driver.find_element(By.ID,"su").click()
+for n in range ( 1, 5):
+    driver.find_element(By.ID,"kw").send_keys(f"GPT{n}")
+    driver.find_element(By.ID,"su").click()
+    # driver.find_element(By.ID,"u").click()
+    time.sleep(4)
+    driver.find_element(By.CLASS_NAME,"toindex").click()
+
+
 time.sleep(70)

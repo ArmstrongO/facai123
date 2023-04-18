@@ -2,10 +2,24 @@
 import time
 
 # import selenium
+import requests
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-
+def yiyan():
+    url = "https://v1.hitokoto.cn/"
+    params = {
+        "c": "f",
+        "encode": "text"
+    }
+    try:
+        res = requests.get(url, params=params)
+        res.raise_for_status()  # 抛出异常
+    except requests.exceptions.RequestException as e:
+        print("网络连接出现问题: ", e)
+        return None
+    else:
+        return res.text
 
 def cnode():
     global wc
@@ -24,23 +38,25 @@ def login():
     time.sleep(3)
 
 def fabu():
+    wc.find_element(By.CLASS_NAME,"brand").click()
+    time.sleep ( 3 )
     wc.find_element(By.CSS_SELECTOR,"#create_topic_btn > span").click()
     time.sleep(1)
     wc.find_element(By.CSS_SELECTOR,"#create_topic_form > fieldset > span.tab-selector").click()
     wc.find_element ( By.CSS_SELECTOR, "#tab-value > option:nth-child(2)" ).click ()
     time.sleep(1)
-    wc.find_element(By.ID,"title").send_keys("这里需要写一个标题")
+    wc.find_element(By.ID,"title").send_keys(f"{yiyan()}")
     time.sleep(1)
     wc.find_element(By.CLASS_NAME,"CodeMirror-code").click()
     time.sleep ( 1 )
-    ActionChains(wc).send_keys("我在写内容").perform()
+    ActionChains(wc).send_keys(f"内容:{yiyan()}").perform()
     time.sleep (2)
     js = "window.scrollTo(100,450)"
     wc.execute_script ( js )
     time.sleep (3)
     wc.find_element(By.CSS_SELECTOR,"#create_topic_form > fieldset > div > div > div.editor_buttons > input").click()
     # ActionChains(wc).key_down(7)
-    time.sleep ( 50 )
+    time.sleep ( 2 )
     return
     # ActionChains(wc).
     # 点击发布
@@ -53,7 +69,9 @@ def fabu():
 
 cnode()
 login()
-fabu()
+
+while 1:
+    fabu()
 
 
 # sleep(3)
