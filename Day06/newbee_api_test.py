@@ -18,7 +18,7 @@ def register():
     # assert res.json()["message"]=="用户名已存在！"
 
 # 登录
-# register()
+register()
 def login():
     global date_login
     date={
@@ -26,13 +26,14 @@ def login():
         "passwordMd5": "4297f44b13955235245b2497399d7a93"
     }
     res = requests.post ( url=f"{xfurl}api/v1/user/login", json=date )
+    print(res.text)
     print ( f"{'用户登录'}{res.json ()['message']}" )
     assert res.status_code==200
     assert res.json()["message"]=="SUCCESS"
     date_login = res.json()['data']
 
 # print(date_login)
-# login()
+login()
 
 # 获取用户信息
 def get_user_message():

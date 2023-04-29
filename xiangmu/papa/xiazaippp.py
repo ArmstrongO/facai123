@@ -41,8 +41,8 @@ if not os.path.exists(dir_path):
 os.startfile(dir_path)# 打开显示文件夹
 
 #开始读取路径下文件
-read = open(r"D:meitu.txt", "r", encoding="utf-8")
-# read = open(r"C:\Users\Administrator\Desktop\1\sese8.txt", "r", encoding="utf-8")
+# read = open(r"D:meitu.txt", "r", encoding="utf-8")
+read = open(r"C:\Users\Administrator\Desktop\1\sese8.txt", "r", encoding="utf-8")
 s = read.readlines()
 print("正在爬取，请稍后！")
 q = 1  # 设置图片名称从1开始
